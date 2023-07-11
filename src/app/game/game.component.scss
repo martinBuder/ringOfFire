@@ -1,0 +1,34 @@
+.field {
+	width: 100%;
+	height: 100vh;
+	background: url(/assets/img/wood.jpg);
+	background-size: cover;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+}
+
+.cardStack {
+	position: relative;
+
+	img {
+		position: absolute;
+		width: 120px;
+	}
+}
+
+.topCard {
+	cursor: pointer;
+	transition: all 125ms ease-in-out;
+
+	&:hover{
+		transform: scale(1.05) rotateZ(2deg)
+	
+	}
+}
+
+.pickCard {
+	transition: all 125ms ease-in-out;
+	transform: scale(1.2) rotateZ(0deg) !important;
+}

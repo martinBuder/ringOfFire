@@ -6,6 +6,7 @@
 	width: 200px;
 	padding: 5px 10px;
 	border-radius: 10px;
+	transition: all 125ms ease-in-out;
 
 
 	img {
@@ -25,4 +26,5 @@
 
 .playerActive {
 	width: 270px;
+	transition: all 125ms ease-in-out;
 }

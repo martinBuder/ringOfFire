@@ -26,13 +26,17 @@ export class GameComponent implements OnInit {
   }
   
   takeCard() {
-    if (!this.pickCardAnimation) {
+    if (!this.pickCardAnimation && this.game.players.length > 1) {
       this.currentCard = `${this.game.stack.pop()}`;
       this.pickCardAnimation = true;
       setTimeout(() => {
         this.game.playCard.push(this.currentCard)
         this.pickCardAnimation = false;
+        this.game.currentPlayer++
+        this.game.currentPlayer = this.game.currentPlayer % this.game.players.length
       }, 1000);
+    } else {
+      alert('Create First Players with "+ Button"!')
     }
   }
 

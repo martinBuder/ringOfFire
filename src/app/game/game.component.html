@@ -8,6 +8,7 @@
 		<img (click)="takeCard()" *ngIf="pickCardAnimation" class="topCard pickCard" style="left: 6.5px; top: 6.5px" src="/assets/img/cards/{{ currentCard }}.png" alt="">
 	</div>
 </div>
+<app-game-description class="gameDesciption"></app-game-description>
 <button mat-fab color="primary" class="btn-add" (click)="openDialog()">
 	<mat-icon>add</mat-icon>
 </button>

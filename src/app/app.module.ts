@@ -5,16 +5,38 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { StartSiteComponent } from './start-site/start-site.component';
 import { GameComponent } from './game/game.component';
+import { PlayerComponent } from './player/player.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {MatButtonModule} from '@angular/material/button';
+import {MatIconModule} from '@angular/material/icon';
+import { DialogAddPlayerComponent } from './dialog-add-player/dialog-add-player.component';
+import { MatDialogModule } from '@angular/material/dialog';
+import { FormsModule } from '@angular/forms';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { NgIf } from '@angular/common';
+import {MatInputModule} from '@angular/material/input';
+
 
 @NgModule({
   declarations: [
     AppComponent,
     StartSiteComponent,
-    GameComponent
+    GameComponent,
+    PlayerComponent,
+    DialogAddPlayerComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule,
+    BrowserAnimationsModule,
+    MatButtonModule,
+    MatIconModule,
+    MatDialogModule,
+    MatIconModule,
+    MatFormFieldModule,
+    NgIf,
+    MatInputModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

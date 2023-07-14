@@ -6,12 +6,14 @@ import { DialogAddPlayerComponent } from '../dialog-add-player/dialog-add-player
 @Component({
   selector: 'app-game',
   templateUrl: './game.component.html',
-  styleUrls: ['./game.component.scss']
+  styleUrls: ['./game.component.scss'],
+  
 })
 export class GameComponent implements OnInit {
   pickCardAnimation = false;
   currentCard: string = '';
   game: Game = new Game(); 
+  playerNumber : number = 0
 
   constructor(public dialog: MatDialog) {
     
@@ -42,9 +44,11 @@ export class GameComponent implements OnInit {
 
   openDialog(): void {
     const dialogRef = this.dialog.open(DialogAddPlayerComponent);
-
     dialogRef.afterClosed().subscribe(name => {
-      this.game.players.push(name)
+      if(name) {
+        this.playerNumber++;
+        this.game.players.push(name + this.playerNumber)
+      }
     });
   }
   

@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "mb-ringoffire-1985": {
+      "hosting": {
+        "ringoffire": [
+          "mb-ringoffire-1985"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "mb-ringoffire-1985"
+  }
+}

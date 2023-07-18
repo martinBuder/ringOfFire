@@ -14,4 +14,13 @@ export class Game {
 		}
 	}
 
+	public toJson() {
+		return {
+			players: this.players,
+			stack: this.stack,
+			playCard: this.playCard,
+			currentPlayer: this.currentPlayer,
+		}
+	}
+
 }

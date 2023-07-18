@@ -1,5 +1,6 @@
 import { Component, Input, OnChanges } from '@angular/core';
 
+
 @Component({
   selector: 'app-game-description',
   templateUrl: './game-description.component.html',

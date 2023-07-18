@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
+import { Firestore, collectionData, collection, addDoc, doc, docData} from '@angular/fire/firestore';
 import { Router } from '@angular/router';
+import { Game } from 'src/models/game';
 
 @Component({
   selector: 'app-start-site',
@@ -8,10 +10,17 @@ import { Router } from '@angular/router';
 })
 export class StartSiteComponent {
 
-  constructor(private router: Router) {}
+  constructor(private firestore: Firestore,private router: Router) {}
 
   newGame(){
-    //Start Game
-    this.router.navigateByUrl('game');
+    let game = new Game();
+    const itemCollection = collection(this.firestore, 'games'); // muss den >Namen von firebase tragen
+    addDoc(itemCollection, game.toJson())
+    .then((gameInfo: any) => {
+      console.log(gameInfo);
+      
+      this.router.navigateByUrl('/game/' + gameInfo.id);
+    });   
+
   }
 }

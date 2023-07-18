@@ -14,8 +14,6 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class GameComponent implements OnInit {
   games$: Observable<any>;
-  pickCardAnimation = false;
-  currentCard: string = '';
   game: Game = new Game(); 
   playerNumber : number = 0;
   gameId : string;
@@ -36,6 +34,8 @@ export class GameComponent implements OnInit {
         this.game.playCard = game.playCard;
         this.game.players = game.players;
         this.game.stack = game.stack;
+        this.game.pickCardAnimation = game.pickCardAnimation;
+        this.game.currentCard = game.currentCard;
       });
     })
   }
@@ -50,18 +50,20 @@ export class GameComponent implements OnInit {
   }
   
   takeCard(): void {
-    if (!this.pickCardAnimation && this.game.players.length > 1) {
-      this.currentCard = `${this.game.stack.pop()}`;
-      this.pickCardAnimation = true;
+    if (!this.game.pickCardAnimation && this.game.players.length > 1) {
+      this.game.currentCard = `${this.game.stack.pop()}`;
+      this.game.pickCardAnimation = true;
+      this.updateGame()
       setTimeout(() => {
-        this.game.playCard.push(this.currentCard)
-        this.pickCardAnimation = false;
+        this.game.playCard.push(this.game.currentCard)
+        this.game.pickCardAnimation = false;
         this.game.currentPlayer++
         this.game.currentPlayer = this.game.currentPlayer % this.game.players.length
         this.updateGame()
       }, 1000);
     } else {
-      alert('Create First Players with "+ Button"!')
+      if (this.game.players.length < 1) 
+       alert('Create First Players with "+ Button"!')
     }
   }
 

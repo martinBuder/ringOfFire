@@ -5,10 +5,10 @@
 		<img [ngStyle]="{'left.px': i/2, 'top.px': i/2}" *ngFor="let c of [0,1,2,3,4,5,6,7,8,9,10,11,12]; let i = index; " src="assets/img/cards/card_cover.png" alt="">
 		<img (click)="takeCard()" class="topCard" style="left: 6.5px; top: 6.5px" src="assets/img/cards/card_cover.png" alt="">
 		<img *ngFor="let playedCard of game.playCard; let i = index;" class="playedCard" src="assets/img/cards/{{ playedCard }}.png" alt="">
-		<img (click)="takeCard()" *ngIf="pickCardAnimation" class="topCard pickCard" style="left: 6.5px; top: 6.5px" src="assets/img/cards/{{ currentCard }}.png" alt="">
+		<img (click)="takeCard()" *ngIf="game.pickCardAnimation" class="topCard pickCard" style="left: 6.5px; top: 6.5px" src="assets/img/cards/{{ game.currentCard }}.png" alt="">
 	</div>
 </div>
-<app-game-description class="gameDesciption" [card]="currentCard"></app-game-description>
+<app-game-description class="gameDesciption" [card]="game.currentCard"></app-game-description>
 <button mat-fab color="primary" class="btn-add" (click)="openDialog()">
 	<mat-icon>add</mat-icon>
 </button>
